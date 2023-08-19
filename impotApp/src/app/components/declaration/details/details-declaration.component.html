@@ -1,0 +1,27 @@
+<div class="container wrapper wrapper2">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3> infos declaration</h3>
+            <form [formGroup]="detailsForm" >
+                <div class="form-group">
+                    <label>Date de declaration</label>
+                    <input type="Date" formControlName="dateDeclaration" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Montant declaré</label>
+                    <input type="text" formControlName="montantDeclaration" class="form-control" maxlength="20">
+                </div>
+                  
+                <div *ngFor="let item of declarants | keyvalue" class="col-md-6">
+                   <div class="row"> {{item.key}}  :   {{item.value}}</div>
+                  </div>
+
+               
+               
+              
+                <button type="button" routerLink="/" class="btn btn-danger">Retour</button>
+            </form>
+        </div>
+    </div>
+</div>

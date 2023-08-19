@@ -1,0 +1,23 @@
+<div class="container wrapper wrapper2">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Nouveau Paiement</h3>
+            <form [formGroup]="addForm" method="post"  (ngSubmit)="submitForm()" novalidate>
+                
+                
+                <div class="form-group">
+                    <label>Montant de Paiement</label>
+                    <input type="text" formControlName="montantPaiement" id="montantPaiement" class="form-control" maxlength="20">
+                </div>
+                
+                
+                <label>Declaration </label>
+                <select formControlName="declaration" class="form-control">
+                  <option *ngFor="let declarations of declarations" [ngValue]="declarations">Date:{{declarations.dateDeclaration}}, montant:{{declarations.montantDeclaration}}, faite par: {{declarations.declarant.raisonSociale}}</option>
+                  </select>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

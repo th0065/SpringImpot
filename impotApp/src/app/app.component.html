@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class="navbar-nav">
+    <ul>
+      <li class="nav-item">
+        <a routerLink="declarants" routerLinkActive="active" 
+        class="nav-link">Liste Declarants</a>
+    
+      </li>
+      <li class="nav-item">
+        <a routerLink="ajouter" routerLinkActive="active" 
+        class="nav-link">Nouveau</a>
+        
+      </li>
+    </ul>
+   
+<ul> 
+  <li class="nav-item">
+  <a routerLink="declarations" routerLinkActive="active" 
+  class="nav-link">Liste Declarations</a>
+
+</li>
+
+<li class="nav-item">
+  <a routerLink="addDeclaration" routerLinkActive="active" 
+  class="nav-link">Nouveau</a>
+
+</li>
+</ul>
+
+<ul> 
+  <li class="nav-item">
+  <a routerLink="paiements" routerLinkActive="active" 
+  class="nav-link">Liste Paiements</a>
+
+</li>
+
+<li class="nav-item">
+  <a routerLink="addPaiement" routerLinkActive="active" 
+  class="nav-link">Nouveau</a>
+
+</li>
+</ul>
+   
+  
+   
+  </ul>
+  </nav>
+  
+  <h1 class="text-center">{{title}}</h1>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <footer class="footer">
+    <span>
+      TRAORE Harouna. All Right Reserved 2023
+    </span>
+  </footer>

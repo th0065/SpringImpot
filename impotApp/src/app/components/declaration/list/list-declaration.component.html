@@ -1,0 +1,47 @@
+<div class="row">
+    <h2>Liste Personne</h2>
+    </div>
+    
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Date de declaration</th>
+                <th>Montant declaré</th>
+                <th>Declarant</th>
+               
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let declaration of declaration  
+            | paginate
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index">
+                <td>{{declaration.dateDeclaration}}</td>
+                <td>{{declaration.montantDeclaration}}</td>
+                <td>{{declaration.declarant.raisonSociale}}</td>
+               
+               <td>
+                <button type="button" class="btn btn-primary btn-sm move-left" [routerLink]="['/declarations/', declaration.id]">Details</button>
+                <button type="button" class="btn btn-success btn-sm move-right" [routerLink]="['/declaration/', declaration.id]">Editer</button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteDeclaration(declaration)">Supprimer</button>
+          
+               </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+        </div>
+    

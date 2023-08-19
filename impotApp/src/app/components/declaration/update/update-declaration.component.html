@@ -1,0 +1,30 @@
+<div class="container wrapper wrapper2">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Modifier infos personne</h3>
+            <form [formGroup]="updateFrom" (ngSubmit)="submitForm()" novalidate>
+               
+                    <input type="number" formControlName="Id" hidden class="form-control" maxlength="20">
+                
+                    <div class="form-group">
+                        <label>Date de declaration</label>
+                        <input type="Date" formControlName="dateDeclaration" class="form-control" maxlength="20">
+                    </div>
+                    <div class="form-group">
+                        <label>Montant declaré</label>
+                        <input type="text" formControlName="montantDeclaration" class="form-control" maxlength="20">
+                    </div>
+                    <label>Declarant:</label>
+                    
+                    <select formControlName="declarant" class="form-control">
+                        <option value={{declar}} disabled>{{declar.raisonSociale}}</option>
+                      <option *ngFor="let declarants of declarants" [ngValue]="declarants">{{declarants.raisonSociale}}</option>
+                      </select>
+                  
+              
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

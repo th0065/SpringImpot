@@ -1,0 +1,50 @@
+<div class="row">
+    <h2>Liste Personne</h2>
+    </div>
+    
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Date de paiement</th>
+                <th>Montant de paiement</th>
+                <th>Date de Declaration</th>
+                <th>Montant Declaré</th>
+                <th>Déclarant</th>
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let paiement of paiement  
+            | paginate
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index">
+                <td>{{paiement.datePaiement}}</td>
+                <td>{{paiement.montantPaiement}}</td>
+                <td>{{paiement.declaration.dateDeclaration}}</td>
+                <td>{{paiement.declaration.montantDeclaration}}</td>
+                <td>{{paiement.declaration.declarant.raisonSociale}}</td>
+              
+               <td>
+                <button type="button" class="btn btn-primary btn-sm move-left" [routerLink]="['/paiements/', paiement.id]">Details</button>
+                <button type="button" class="btn btn-success btn-sm move-right" [routerLink]="['/paiement/', paiement.id]">Editer</button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="deletePaiement(paiement)">Supprimer</button>
+          
+               </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+        </div>
+    

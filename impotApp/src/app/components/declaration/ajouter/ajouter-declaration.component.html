@@ -1,0 +1,23 @@
+<div class="container wrapper wrapper2">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Nouvelle declaration</h3>
+            <form [formGroup]="addForm" method="post"  (ngSubmit)="submitForm()" novalidate>
+                
+                    <input type="Date" hidden formControlName="dateDeclaration" class="form-control" maxlength="20">
+                
+                <div class="form-group">
+                    <label>Montant declaré</label>
+                    <input type="text" formControlName="montantDeclaration" class="form-control" maxlength="20">
+                </div>
+
+                <label>Declarant</label>
+                <select formControlName="declarant" class="form-control">
+                  <option *ngFor="let declarants of declarants" [ngValue]="declarants">{{declarants.raisonSociale}}</option>
+                  </select>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
